@@ -13,12 +13,22 @@ public class Main {
 
         System.out.println("All products");
         printList(providerService.findAllProductsDto());
+
+        System.out.println("All product names");
+        System.out.println(providerService.findAllProductNames());
+
+        System.out.println("Products with a 5-character name");
+        System.out.println(providerService.findAllProductsDto().stream().anyMatch(s -> s.getName().length() == 5));
+
         System.out.println("Order by name");
         printList(providerService.findAllProductsOrderByName());
+
         System.out.println("Code starts with");
         printList(providerService.findProductsCodeStartsWith("Z"));
+
         System.out.println("Get by code");
         System.out.println(providerService.getProductByCode("C-1"));
+
         System.out.println("Get total products");
         System.out.println(providerService.getTotalProducts());
 
