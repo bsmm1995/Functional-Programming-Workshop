@@ -11,12 +11,17 @@ public class Main {
     public static void main(String[] args) {
         ProviderService providerService = new ProviderService();
 
+        System.out.println("All products");
         printList(providerService.findAllProductsDto());
+        System.out.println("Order by name");
         printList(providerService.findAllProductsOrderByName());
+        System.out.println("Code starts with");
         printList(providerService.findProductsCodeStartsWith("Z"));
+        System.out.println("Get by code");
         System.out.println(providerService.getProductByCode("C-1"));
+        System.out.println("Get total products");
         System.out.println(providerService.getTotalProducts());
-        System.out.println();
+
         operations();
     }
 
@@ -26,7 +31,8 @@ public class Main {
 
     private static void operations() {
         ArithmeticOperations sum = (a, b) -> a + (b * b);
-        System.out.println(sum.operation(15.5, 10));
+        System.out.println("Operations");
+        System.out.println(sum.operation(1, 2));
         System.out.println(sum.operation());
     }
 }
