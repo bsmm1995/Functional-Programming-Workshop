@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27bb3a9-7c38-4afc-8556-ce31d2fcc008" name="Changes" comment="Improvements">
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/domain/ProductEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/functions/ArithmeticOperations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/functions/FunctionalOperation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/service/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/service/ProviderService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,12 +44,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="org.bsmm.domain" />
@@ -81,7 +84,8 @@
       <option name="presentableId" value="Default" />
       <updated>1659548339179</updated>
       <workItem from="1659548341475" duration="5816000" />
-      <workItem from="1659555611560" duration="6813000" />
+      <workItem from="1659555611560" duration="6874000" />
+      <workItem from="1659621723432" duration="1747000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1659557215538</created>
@@ -97,7 +101,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659558065404</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Improvements">
+      <created>1659563855072</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1659563855072</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

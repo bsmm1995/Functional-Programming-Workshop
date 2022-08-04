@@ -1,10 +1,10 @@
 package org.bsmm.functions;
 
 @FunctionalInterface
-public interface ArithmeticOperations {
+public interface FunctionalOperation {
     double operation(double x, double y);
 
-    default double operation() {
+    default double defaultMethod() {
         return 0;
     }
 }

@@ -1,59 +1,108 @@
 package org.bsmm.service;
 
-import org.bsmm.domain.Product;
+import org.bsmm.domain.ProductEntity;
 import org.bsmm.domain.ProductDto;
 import org.modelmapper.ModelMapper;
 
 import java.util.*;
 
 public class ProviderService {
-    ArrayList<Product> products;
+    ArrayList<ProductEntity> productEntities;
 
     public List<ProductDto> findAllProductsDto() {
-        return products.stream().parallel().map(this::convertToDto).toList();
+        return productEntities
+                .stream()
+                .parallel()
+                .map(this::convertToDto)
+                .toList();
     }
 
     public List<String> findAllProductNames() {
-        return products.stream().parallel().map(Product::getName).toList();
+        return productEntities
+                .stream()
+                .map(ProductEntity::getName)
+                .toList();
     }
 
     public int getTotalProducts() {
-        return products.stream().mapToInt(Product::getQuantity).sum();
+        return productEntities
+                .stream()
+                .mapToInt(ProductEntity::getQuantity)
+                .sum();
     }
 
     public List<ProductDto> findAllProductsOrderByName() {
-        return products.stream().map(this::convertToDto).sorted(Comparator.comparing(ProductDto::getName)).toList();
+        return productEntities
+                .stream()
+                .map(this::convertToDto)
+                .sorted(Comparator.comparing(ProductDto::getName))
+                .toList();
     }
 
     public ProductDto getProductByCode(String code) {
-        Optional<ProductDto> optional = products.stream().map(this::convertToDto)
+        Optional<ProductDto> optional = productEntities
+                .stream()
+                .map(this::convertToDto)
                 .filter(Objects::nonNull)
-                .filter(e -> e.getCode().contentEquals(code)).findFirst();
+                .filter(e -> e.getCode().contentEquals(code))
+                .findFirst();
+
         return optional.orElseThrow();
     }
 
-    public List<ProductDto> findProductsCodeStartsWith(String code) {
-        return products.stream().map(this::convertToDto).filter(e -> e.getCode().startsWith(code)).toList();
+    public int getProductQuantityByCode(String code) {
+        Optional<ProductEntity> optional = productEntities
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(e -> e.getCode().contentEquals(code))
+                .findFirst();
+
+        if (optional.isEmpty()) {
+            throw new IllegalStateException();
+        }
+        return optional.get().getQuantity();
     }
 
-    private ProductDto convertToDto(Product product) {
+    public void showProductDetailByCode(String code) {
+        Optional<ProductDto> optional = productEntities
+                .stream()
+                .map(this::convertToDto)
+                .filter(Objects::nonNull)
+                .filter(e -> e.getCode().contentEquals(code))
+                .findFirst();
+
+        optional.ifPresent(product -> {
+            System.out.println(product.getCode());
+            System.out.println(product.getName());
+        });
+    }
+
+    public List<ProductDto> findProductsCodeStartsWith(String code) {
+        return productEntities
+                .stream()
+                .map(this::convertToDto)
+                .filter(e -> e.getCode().startsWith(code))
+                .toList();
+    }
+
+    private ProductDto convertToDto(ProductEntity productEntity) {
         ModelMapper modelMapper = new ModelMapper();
-        return modelMapper.map(product, ProductDto.class);
+        return modelMapper.map(productEntity, ProductDto.class);
     }
 
     public ProviderService() {
-        products = new ArrayList<>();
-        products.add(new Product("C-1", "Product C-1", 10.0, 8));
-        products.add(new Product("C-2", "Product C-2", 2.0, 45));
-        products.add(new Product("C-3", "Product C-3", 5.75, 80));
-        products.add(new Product("A-1", "P A-1", 8.0, 25));
-        products.add(new Product("A-2", "P A-2", 5.0, 10));
-        products.add(new Product("A-3", "P A-3", 6.0, 1));
-        products.add(new Product("Z-1", "Product Z-1", 1.5, 5));
-        products.add(new Product("Z-2", "Product Z-2", 1.0, 34));
-        products.add(new Product("Z-3", "Product Z-3", 2.0, 22));
-        products.add(new Product("B-1", "Product B-1", 4.25, 11));
-        products.add(new Product("B-2", "Product B-2", 3.0, 90));
-        products.add(new Product("B-3", "Product B-3", 7.5, 3));
+        productEntities = new ArrayList<>();
+        productEntities.add(new ProductEntity("C-1", "ProductEntity C-1", 10.0, 8));
+        productEntities.add(new ProductEntity("C-2", "ProductEntity C-2", 2.0, 45));
+        productEntities.add(new ProductEntity("C-3", "ProductEntity C-3", 5.75, 80));
+        productEntities.add(new ProductEntity("A-1", "P A-1", 8.0, 25));
+        productEntities.add(new ProductEntity("A-2", "P A-2", 5.0, 10));
+        productEntities.add(new ProductEntity("A-3", "P A-3", 6.0, 1));
+        productEntities.add(new ProductEntity("Z-1", "ProductEntity Z-1", 1.5, 5));
+        productEntities.add(new ProductEntity("Z-2", "ProductEntity Z-2", 1.0, 34));
+        productEntities.add(new ProductEntity("Z-3", "ProductEntity Z-3", 2.0, 22));
+        productEntities.add(new ProductEntity("B-1", "ProductEntity B-1", 4.25, 11));
+        productEntities.add(new ProductEntity("B-2", "ProductEntity B-2", 3.0, 90));
+        productEntities.add(new ProductEntity("B-3", "ProductEntity B-3", 7.5, 3));
     }
 }

@@ -1,7 +1,7 @@
 package org.bsmm;
 
 import org.bsmm.domain.ProductDto;
-import org.bsmm.functions.ArithmeticOperations;
+import org.bsmm.functions.FunctionalOperation;
 import org.bsmm.service.ProviderService;
 
 import java.util.List;
@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+
         ProviderService providerService = new ProviderService();
 
         System.out.println("All products");
@@ -32,6 +33,13 @@ public class Main {
         System.out.println("Get total products");
         System.out.println(providerService.getTotalProducts());
 
+        System.out.println("Get product quantity by code");
+        System.out.println(providerService.getProductQuantityByCode("C-1"));
+
+        System.out.println("Show product detail by code");
+        providerService.showProductDetailByCode("C-1");
+
+        System.out.println("Operations");
         operations();
     }
 
@@ -40,9 +48,9 @@ public class Main {
     }
 
     private static void operations() {
-        ArithmeticOperations sum = (a, b) -> a + (b * b);
-        System.out.println("Operations");
-        System.out.println(sum.operation(1, 2));
-        System.out.println(sum.operation());
+        FunctionalOperation operation = (a, b) -> a + (b * b);
+
+        System.out.println(operation.operation(1, 2));
+        System.out.println(operation.defaultMethod());
     }
 }

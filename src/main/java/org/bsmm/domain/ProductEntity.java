@@ -1,16 +1,16 @@
 package org.bsmm.domain;
 
-public class Product {
+public class ProductEntity {
     private String code;
     private String name;
     private double price;
     private int quantity;
 
-    public Product() {
+    public ProductEntity() {
 
     }
 
-    public Product(String code, String name, double price, int quantity) {
+    public ProductEntity(String code, String name, double price, int quantity) {
         this.code = code;
         this.name = name;
         this.price = price;
