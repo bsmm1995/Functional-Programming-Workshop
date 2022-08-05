@@ -39,6 +39,9 @@ public class Main {
         System.out.println("Show product detail by code");
         providerService.showProductDetailByCode("C-1");
 
+        System.out.println("Get total");
+        System.out.println(providerService.getTotalProductsWithPVPGreaterThan(10));
+
         System.out.println("Operations");
         operations();
     }
@@ -51,6 +54,7 @@ public class Main {
         FunctionalOperation operation = (a, b) -> a + (b * b);
 
         System.out.println(operation.operation(1, 2));
+
         System.out.println(operation.defaultMethod());
     }
 }

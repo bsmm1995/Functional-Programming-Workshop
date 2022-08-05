@@ -12,3 +12,7 @@ X
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
 <
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
+]
+-src/main/java/org/bsmm/domain/ProductDto.java,4\c\4c38db76aefa8226d3d28d99f3a4472f895f30aa
+`
+0src/main/java/org/bsmm/domain/ProductEntity.java,a\b\ab792d4199ac34bd0a270e696830871ad0d7add0

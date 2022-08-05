@@ -1,7 +1,7 @@
 package org.bsmm.service;
 
-import org.bsmm.domain.ProductEntity;
 import org.bsmm.domain.ProductDto;
+import org.bsmm.domain.ProductEntity;
 import org.modelmapper.ModelMapper;
 
 import java.util.*;
@@ -10,52 +10,29 @@ public class ProviderService {
     ArrayList<ProductEntity> productEntities;
 
     public List<ProductDto> findAllProductsDto() {
-        return productEntities
-                .stream()
-                .parallel()
-                .map(this::convertToDto)
-                .toList();
+        return productEntities.stream().parallel().map(this::convertToDto).toList();
     }
 
     public List<String> findAllProductNames() {
-        return productEntities
-                .stream()
-                .map(ProductEntity::getName)
-                .toList();
+        return productEntities.stream().map(ProductEntity::getName).toList();
     }
 
     public int getTotalProducts() {
-        return productEntities
-                .stream()
-                .mapToInt(ProductEntity::getQuantity)
-                .sum();
+        return productEntities.stream().mapToInt(ProductEntity::getQuantity).sum();
     }
 
     public List<ProductDto> findAllProductsOrderByName() {
-        return productEntities
-                .stream()
-                .map(this::convertToDto)
-                .sorted(Comparator.comparing(ProductDto::getName))
-                .toList();
+        return productEntities.stream().map(this::convertToDto).sorted(Comparator.comparing(ProductDto::getName)).toList();
     }
 
     public ProductDto getProductByCode(String code) {
-        Optional<ProductDto> optional = productEntities
-                .stream()
-                .map(this::convertToDto)
-                .filter(Objects::nonNull)
-                .filter(e -> e.getCode().contentEquals(code))
-                .findFirst();
+        Optional<ProductDto> optional = productEntities.stream().map(this::convertToDto).filter(Objects::nonNull).filter(e -> e.getCode().contentEquals(code)).findFirst();
 
         return optional.orElseThrow();
     }
 
     public int getProductQuantityByCode(String code) {
-        Optional<ProductEntity> optional = productEntities
-                .stream()
-                .filter(Objects::nonNull)
-                .filter(e -> e.getCode().contentEquals(code))
-                .findFirst();
+        Optional<ProductEntity> optional = productEntities.stream().filter(Objects::nonNull).filter(e -> e.getCode().contentEquals(code)).findFirst();
 
         if (optional.isEmpty()) {
             throw new IllegalStateException();
@@ -63,13 +40,12 @@ public class ProviderService {
         return optional.get().getQuantity();
     }
 
+    public double getTotalProductsWithPVPGreaterThan(double limit) {
+        return productEntities.stream().filter(product -> product.getCode().startsWith("C")).mapToDouble(product -> product.getPrice() * 1.12).filter(value -> value > limit).sum();
+    }
+
     public void showProductDetailByCode(String code) {
-        Optional<ProductDto> optional = productEntities
-                .stream()
-                .map(this::convertToDto)
-                .filter(Objects::nonNull)
-                .filter(e -> e.getCode().contentEquals(code))
-                .findFirst();
+        Optional<ProductDto> optional = productEntities.stream().map(this::convertToDto).filter(Objects::nonNull).filter(e -> e.getCode().contentEquals(code)).findFirst();
 
         optional.ifPresent(product -> {
             System.out.println(product.getCode());
@@ -78,11 +54,7 @@ public class ProviderService {
     }
 
     public List<ProductDto> findProductsCodeStartsWith(String code) {
-        return productEntities
-                .stream()
-                .map(this::convertToDto)
-                .filter(e -> e.getCode().startsWith(code))
-                .toList();
+        return productEntities.stream().map(this::convertToDto).filter(e -> e.getCode().startsWith(code)).toList();
     }
 
     private ProductDto convertToDto(ProductEntity productEntity) {
