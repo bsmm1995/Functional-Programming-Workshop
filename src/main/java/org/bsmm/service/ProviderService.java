@@ -21,6 +21,10 @@ public class ProviderService {
         return productEntities.stream().mapToInt(ProductEntity::getQuantity).sum();
     }
 
+    public int getTotalProducts2() {
+        return productEntities.stream().map(ProductEntity::getQuantity).reduce(0, Integer::sum);
+    }
+
     public List<ProductDto> findAllProductsOrderByName() {
         return productEntities.stream().map(this::convertToDto).sorted(Comparator.comparing(ProductDto::getName)).toList();
     }

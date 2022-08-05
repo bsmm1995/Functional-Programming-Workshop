@@ -32,6 +32,7 @@ public class Main {
 
         System.out.println("Get total products");
         System.out.println(providerService.getTotalProducts());
+        System.out.println(providerService.getTotalProducts2());
 
         System.out.println("Get product quantity by code");
         System.out.println(providerService.getProductQuantityByCode("C-1"));

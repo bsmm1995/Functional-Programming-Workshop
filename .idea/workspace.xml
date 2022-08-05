@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b27bb3a9-7c38-4afc-8556-ce31d2fcc008" name="Changes" comment="Improvements">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/bsmm/service/ProviderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/bsmm/service/ProviderService.java" afterDir="false" />
@@ -85,7 +84,7 @@
       <workItem from="1659548341475" duration="5816000" />
       <workItem from="1659555611560" duration="6874000" />
       <workItem from="1659621723432" duration="3929000" />
-      <workItem from="1659648102409" duration="5392000" />
+      <workItem from="1659648102409" duration="6564000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1659557215538</created>
@@ -115,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659623910929</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Improvements">
+      <created>1659657637679</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1659657637679</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
